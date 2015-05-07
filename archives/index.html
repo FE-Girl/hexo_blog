@@ -221,15 +221,14 @@
 <li>IE6中block元素即使触发了haslayout也不能具有inline-block元素不换行的特性，必须先将其强制转换为inline元素，再触发haslayout</li>
 </ul>
 <blockquote>
-<p>兼容各浏览器的写法：<br>     display:inline-block;     //现代浏览器 和 IE6、7 的inline元素<br>     <em>display:inline;     //IE6、7 block元素
-     </em>zoom:1;        //IE6、7 触发layout</p>
-<p>解决IE6、7 block元素表现为inline-block还有一种方法：<br>     .content {<br>           display:inline-block;   //先触发其layout<br>      }<br>     .content {<br>           *display:inline;     //再强制转换成inline元素<br>      }</p>
+<p>兼容各浏览器的写法：<br>    <code>display:inline-block;     //现代浏览器 和 IE6、7 的inline元素</code><br>    <code>*display:inline;     //IE6、7 block元素</code><br>    <code>*zoom:1;        //IE6、7 触发layout</code></p>
+<p>解决IE6、7 block元素表现为inline-block还有一种方法：<br>    <code>.content {</code><br>    <code>display:inline-block;   //先触发其layout</code><br>    <code>}</code><br>    <code>.content {</code><br>    <code>*display:inline;     //再强制转换成inline元素</code><br>    <code>}</code></p>
 </blockquote>
 <p>间隙问题</p>
 <ul>
 <li>display设置为inline和inline-block的元素前后会有间隙（不是固定大小的），但在IE6、7中block的元素设置inline-block后没有间隙。</li>
 <li>产生间隙的根本原因：HTML中的换行符、空格符、制表符等产生了空白符，而这些归根结底都是字符，那么它们的大小都是受font-size来控制的。</li>
-<li>解决间隙的方法：<br>   font-size:0;   //所有浏览器<br>   letter-spacing:-5px;     //safair等不支持字体为0的浏览器<br>   *letter-spacing:normal;<br>   word-spacing:-1px;    //IE6、7</li>
+<li>解决间隙的方法：<br><code>font-size:0;   //所有浏览器</code><br><code>letter-spacing:-5px;     //safair等不支持字体为0的浏览器</code><br><code>*letter-spacing:normal;</code><br><code>word-spacing:-1px;    //IE6、7</code></li>
 </ul>
 </blockquote>
 <ul>
