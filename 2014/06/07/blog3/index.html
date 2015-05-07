@@ -231,21 +231,21 @@ display:inline-block;    格式化为行内元素的块容器">
 <li>IE6中block元素即使触发了haslayout也不能具有inline-block元素不换行的特性，必须先将其强制转换为inline元素，再触发haslayout</li>
 </ul>
 <blockquote>
-<p>兼容各浏览器的写法：</p>
-<pre><code>-<span class="ruby"> <span class="symbol">display:</span>inline-block;     <span class="regexp">//</span>现代浏览器 和 <span class="constant">IE6</span>、<span class="number">7</span> 的inline元素
-</span>-<span class="ruby"> *<span class="symbol">display:</span>inline;     <span class="regexp">//</span><span class="constant">IE6</span>、<span class="number">7</span> block元素
-</span>-<span class="ruby"> *<span class="symbol">zoom:</span><span class="number">1</span>;        <span class="regexp">//</span><span class="constant">IE6</span>、<span class="number">7</span> 触发layout</span>
-</code></pre><p>解决IE6、7 block元素表现为inline-block还有一种方法：<br>.content {<br>           display:inline-block;   //先触发其layout<br>      }<br>     .content {<br>           *display:inline;     //再强制转换成inline元素<br>      }</p>
+<p>兼容各浏览器的写法：<br>     display:inline-block;     //现代浏览器 和 IE6、7 的inline元素<br>     <em>display:inline;     //IE6、7 block元素
+     </em>zoom:1;        //IE6、7 触发layout</p>
+<p>解决IE6、7 block元素表现为inline-block还有一种方法：<br>     .content {<br>           display:inline-block;   //先触发其layout<br>      }<br>     .content {<br>           *display:inline;     //再强制转换成inline元素<br>      }</p>
 </blockquote>
 <p>间隙问题</p>
 <ul>
 <li>display设置为inline和inline-block的元素前后会有间隙（不是固定大小的），但在IE6、7中block的元素设置inline-block后没有间隙。</li>
 <li>产生间隙的根本原因：HTML中的换行符、空格符、制表符等产生了空白符，而这些归根结底都是字符，那么它们的大小都是受font-size来控制的。</li>
-<li>解决间隙的方法：<br>font-size:0;   //所有浏览器<br>   letter-spacing:-5px;     //safair等不支持字体为0的浏览器<br>   *letter-spacing:normal;<br>   word-spacing:-1px;    //IE6、7</li>
+<li>解决间隙的方法：<br>   font-size:0;   //所有浏览器<br>   letter-spacing:-5px;     //safair等不支持字体为0的浏览器<br>   *letter-spacing:normal;<br>   word-spacing:-1px;    //IE6、7</li>
 </ul>
 </blockquote>
-<pre><code>  上述所有操作都是在父元素设置的，那么子元素都会继承这些属性，字体大小为0了，子元素就什么都看不到了，这并不是我们想要的。 同时字符和单词间距我们也要把它重置为默认值。「<span class="attribute">font-size</span><span class="value">: <span class="number">12px</span>;</span> <span class="attribute">letter-spacing</span><span class="value">: normal;</span> <span class="attribute">word-spacing</span><span class="value">: normal;</span>」
-</code></pre>
+<ul>
+<li>上述所有操作都是在父元素设置的，那么子元素都会继承这些属性，字体大小为0了，子元素就什么都看不到了，这并不是我们想要的。 同时字符和单词间距我们也要把它重置为默认值。font-size: 12px; letter-spacing: normal; word-spacing: normal;</li>
+</ul>
+
       
     </div>
   </div>
