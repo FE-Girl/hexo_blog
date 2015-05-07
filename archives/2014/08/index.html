@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: inline-block | Blog</title>
+  <title>Archives: 2014/8 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Blog">
-<meta property="og:url" content="http://fe-girl.github.io/hexo_blog/hexo_blog/tags/inline-block/">
+<meta property="og:url" content="http://fe-girl.github.io/hexo_blog/hexo_blog/archives/2014/08/">
 <meta property="og:site_name" content="Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -177,15 +177,15 @@
 </nav>
       
   
-    <article id="post-blog3" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-blog4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/hexo_blog/2014/06/07/blog3/" class="article-date">
-  	<time datetime="2014-06-07T08:41:41.000Z" itemprop="datePublished">Jun 7 2014</time>
+      <a href="/hexo_blog/2014/08/07/blog4/" class="article-date">
+  	<time datetime="2014-08-07T09:15:52.000Z" itemprop="datePublished">Aug 7 2014</time>
 </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/hexo_blog/tags/inline-block/">inline-block</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/hexo_blog/tags/渐进增强和优雅降级/">渐进增强和优雅降级</a></li></ul>
 
     </div>
   
@@ -198,7 +198,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/hexo_blog/2014/06/07/blog3/">有关inline-block</a>
+      <a class="article-title" href="/hexo_blog/2014/08/07/blog4/">渐进增强&amp;优雅降级</a>
     </h1>
   
 
@@ -206,34 +206,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="display的三个常用值">display的三个常用值</h1>
-<ul>
-<li>display:block;   将元素显示为块级元素。其高度、行高以及顶和底边距都可控制。宽度缺省是它的容器的100%，除非设定一个宽度。</li>
-<li>display:inline;   将元素显示为行内元素。和其他元素都在一行上，高、行高以及顶和底边距不可设置。宽度就是它的文字或图片的宽度，不可改变。</li>
-<li>display:inline-block;    格式化为行内元素的块容器。将对象呈递为内联对象，但是对象的内容作为块对象呈递。旁边的内联对象会被呈递在同一行内，允许空格。准确来说，应用此特性的元素呈现为内联对象，但可以设置高度和宽度等块级元素属性。注意在设置margin:0 auto;时没效果，因为它呈现的是内联对象，占据的不是一整行。</li>
-</ul>
-<h1 id="inline-block">inline-block</h1>
+        <p><code>渐进增强</code>：是一种开发方式，更是一种设计理念。在编写web页面时，首先保证最核心的功能实现，让任何低端的浏览器都能看到站点内容，然后考虑使用高级但非必要的CSS和JavaScript等增强功能，为当前和未来的浏览器提供更好的支持，给用户带来更好的体验。不追求高端浏览器实现多酷炫的效果，最重要的是保证低端浏览器也能正常实现核心功能和效果。</p>
 <blockquote>
-<p>浏览器兼容问题：</p>
-<ul>
-<li>IE从5.5就开始支持display:inline-block;，只是支持的并不是那么的完善；</li>
-<li>IE6中inline元素只要触发了haslayout其表现就类似于inline-block</li>
-<li>IE6中block元素即使触发了haslayout也不能具有inline-block元素不换行的特性，必须先将其强制转换为inline元素，再触发haslayout</li>
-</ul>
+<p>渐进增强比较适合低版本浏览器用户群占的比例比较大的网站。</p>
+</blockquote>
+<p><code>优雅降级</code>：在设计的时候，主要为高端浏览器使用最新的技术来实现最可观的效果，而低端浏览器只要保证基本可用就好，即表现在高端浏览器中提供的新特性在低端浏览器中会被降级，且一般会有一个达到基本体验的分界点，同时会声明不支持那些老掉牙的浏览器，类似于警告性语言并提出建议。</p>
 <blockquote>
-<p>兼容各浏览器的写法：<br>    <code>display:inline-block;     //现代浏览器 和 IE6、7 的inline元素</code><br>    <code>*display:inline;     //IE6、7 block元素</code><br>    <code>*zoom:1;        //IE6、7 触发layout</code></p>
-<p>解决IE6、7 block元素表现为inline-block还有一种方法：<br>    <code>.content {</code><br>    <code>display:inline-block;   //先触发其layout</code><br>    <code>}</code><br>    <code>.content {</code><br>    <code>*display:inline;     //再强制转换成inline元素</code><br>    <code>}</code></p>
+<p>优雅降级比较适合使用现代浏览器想要体验最新最可观的效果的用户群比较多的网站。</p>
 </blockquote>
-<p>间隙问题</p>
-<ul>
-<li>display设置为inline和inline-block的元素前后会有间隙（不是固定大小的），但在IE6、7中block的元素设置inline-block后没有间隙。</li>
-<li>产生间隙的根本原因：HTML中的换行符、空格符、制表符等产生了空白符，而这些归根结底都是字符，那么它们的大小都是受font-size来控制的。</li>
-<li>解决间隙的方法：<br><code>font-size:0;   //所有浏览器</code><br><code>letter-spacing:-5px;     //safair等不支持字体为0的浏览器</code><br><code>*letter-spacing:normal;</code><br><code>word-spacing:-1px;    //IE6、7</code></li>
-</ul>
-</blockquote>
-<ul>
-<li>上述所有操作都是在父元素设置的，那么子元素都会继承这些属性，字体大小为0了，子元素就什么都看不到了，这并不是我们想要的。 同时字符和单词间距我们也要把它重置为默认值。font-size: 12px; letter-spacing: normal; word-spacing: normal;</li>
-</ul>
 
       
     </div>
