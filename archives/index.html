@@ -113,7 +113,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud">
-						<a href="/hexo_blog/tags/可用性/" style="font-size: NaNpx;">可用性</a><a href="/hexo_blog/tags/网站设计/" style="font-size: NaNpx;">网站设计</a>
+						<a href="/hexo_blog/tags/inline-block/" style="font-size: NaNpx;">inline-block</a><a href="/hexo_blog/tags/可用性/" style="font-size: NaNpx;">可用性</a><a href="/hexo_blog/tags/网站设计/" style="font-size: NaNpx;">网站设计</a>
 					</div>
 				</section>
 				
@@ -176,6 +176,77 @@
 	</div>
 </nav>
       
+  
+    <article id="post-blog3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/hexo_blog/2014/06/07/blog3/" class="article-date">
+  	<time datetime="2014-06-07T08:41:41.000Z" itemprop="datePublished">Jun 7 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/hexo_blog/tags/inline-block/">inline-block</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/hexo_blog/2014/06/07/blog3/">有关inline-block</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="display的三个常用值">display的三个常用值</h1>
+<ul>
+<li>display:block;   将元素显示为块级元素。其高度、行高以及顶和底边距都可控制。宽度缺省是它的容器的100%，除非设定一个宽度。</li>
+<li>display:inline;   将元素显示为行内元素。和其他元素都在一行上，高、行高以及顶和底边距不可设置。宽度就是它的文字或图片的宽度，不可改变。</li>
+<li>display:inline-block;    格式化为行内元素的块容器。将对象呈递为内联对象，但是对象的内容作为块对象呈递。旁边的内联对象会被呈递在同一行内，允许空格。准确来说，应用此特性的元素呈现为内联对象，但可以设置高度和宽度等块级元素属性。注意在设置margin:0 auto;时没效果，因为它呈现的是内联对象，占据的不是一整行。</li>
+</ul>
+<h1 id="inline-block">inline-block</h1>
+<blockquote>
+<p>浏览器兼容问题：</p>
+<ul>
+<li>IE从5.5就开始支持display:inline-block;，只是支持的并不是那么的完善；</li>
+<li>IE6中inline元素只要触发了haslayout其表现就类似于inline-block</li>
+<li>IE6中block元素即使触发了haslayout也不能具有inline-block元素不换行的特性，必须先将其强制转换为inline元素，再触发haslayout</li>
+</ul>
+<blockquote>
+<p>兼容各浏览器的写法：</p>
+<pre><code>-<span class="ruby"> <span class="symbol">display:</span>inline-block;     <span class="regexp">//</span>现代浏览器 和 <span class="constant">IE6</span>、<span class="number">7</span> 的inline元素
+</span>-<span class="ruby"> *<span class="symbol">display:</span>inline;     <span class="regexp">//</span><span class="constant">IE6</span>、<span class="number">7</span> block元素
+</span>-<span class="ruby"> *<span class="symbol">zoom:</span><span class="number">1</span>;        <span class="regexp">//</span><span class="constant">IE6</span>、<span class="number">7</span> 触发layout</span>
+</code></pre><p>解决IE6、7 block元素表现为inline-block还有一种方法：<br>.content {<br>           display:inline-block;   //先触发其layout<br>      }<br>     .content {<br>           *display:inline;     //再强制转换成inline元素<br>      }</p>
+</blockquote>
+<p>间隙问题</p>
+<ul>
+<li>display设置为inline和inline-block的元素前后会有间隙（不是固定大小的），但在IE6、7中block的元素设置inline-block后没有间隙。</li>
+<li>产生间隙的根本原因：HTML中的换行符、空格符、制表符等产生了空白符，而这些归根结底都是字符，那么它们的大小都是受font-size来控制的。</li>
+<li>解决间隙的方法：<br>font-size:0;   //所有浏览器<br>   letter-spacing:-5px;     //safair等不支持字体为0的浏览器<br>   *letter-spacing:normal;<br>   word-spacing:-1px;    //IE6、7</li>
+</ul>
+</blockquote>
+<pre><code>  上述所有操作都是在父元素设置的，那么子元素都会继承这些属性，字体大小为0了，子元素就什么都看不到了，这并不是我们想要的。 同时字符和单词间距我们也要把它重置为默认值。「<span class="attribute">font-size</span><span class="value">: <span class="number">12px</span>;</span> <span class="attribute">letter-spacing</span><span class="value">: normal;</span> <span class="attribute">word-spacing</span><span class="value">: normal;</span>」
+</code></pre>
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
   
     <article id="post-blog2" class="article article-type-post" itemscope itemprop="blogPost">
   
