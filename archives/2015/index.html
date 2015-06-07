@@ -113,7 +113,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud">
-						<a href="/hexo_blog/tags/inline-block/" style="font-size: NaNpx;">inline-block</a><a href="/hexo_blog/tags/可用性/" style="font-size: NaNpx;">可用性</a><a href="/hexo_blog/tags/实习总结/" style="font-size: NaNpx;">实习总结</a><a href="/hexo_blog/tags/渐进增强和优雅降级/" style="font-size: NaNpx;">渐进增强和优雅降级</a><a href="/hexo_blog/tags/网站设计/" style="font-size: NaNpx;">网站设计</a>
+						<a href="/hexo_blog/tags/Node-js-Ajax-又拍云/" style="font-size: NaNpx;">Node.js & Ajax & 又拍云</a><a href="/hexo_blog/tags/inline-block/" style="font-size: NaNpx;">inline-block</a><a href="/hexo_blog/tags/可用性/" style="font-size: NaNpx;">可用性</a><a href="/hexo_blog/tags/实习总结/" style="font-size: NaNpx;">实习总结</a><a href="/hexo_blog/tags/渐进增强和优雅降级/" style="font-size: NaNpx;">渐进增强和优雅降级</a><a href="/hexo_blog/tags/网站设计/" style="font-size: NaNpx;">网站设计</a>
 					</div>
 				</section>
 				
@@ -176,6 +176,65 @@
 	</div>
 </nav>
       
+  
+    <article id="post-blog6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/hexo_blog/2015/06/07/blog6/" class="article-date">
+  	<time datetime="2015-06-07T13:32:59.000Z" itemprop="datePublished">Jun 7 2015</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/hexo_blog/tags/Node-js-Ajax-又拍云/">Node.js & Ajax & 又拍云</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/hexo_blog/2015/06/07/blog6/">聊天室发送图片功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>前几天在做毕业设计，做了一个基于Node的聊天室，但是此聊天室只能发送文字，当然不能满足用户最基本的需求，所以想加一下发送图片的功能。<br>那么发送图片该怎么来做，怎么把自己本地的图片发送给聊天室内的其他人？<br>我总结了以下步骤：</p>
+<ul>
+<li>通过input(file)选取本地的图片</li>
+<li>通过Ajax把图片传给后台接口</li>
+<li>后台接收到图片后将其上传到又拍云帮助我们来存储</li>
+<li>将存储到又拍云上的图片再下载到本地的临时文件里</li>
+<li>再把图片通过Socket.IO发送出去</li>
+<li>这样，整个过程就完成了<br>具体过程如下（附代码）：<br>首先在HTML的结构如下所示：<pre><code><form class="form-horizontal" enctype="multipart/form-data" method="post" action="javascript:;" role="form" id="frmUploadFile">
+                <a href="javascript:void(0);" class="file-btn J_FileBtn" title="发送图片或视频" target="_blank" rel="external">
+                    <img src="/images/addfile.png" alt="">
+                    <input type="file" name="files" class="form-control">
+                </a>
+            </form>
+</code></pre></li>
+</ul>
+</blockquote>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
   
     <article id="post-blog5" class="article article-type-post" itemscope itemprop="blogPost">
   
